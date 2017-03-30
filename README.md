@@ -1,8 +1,5 @@
 # Roman Calculator
 
-author: siritas s.<siritas@gmail.com>
-
-
 To run a program; you need Java 7 or higher version.
 
 ```

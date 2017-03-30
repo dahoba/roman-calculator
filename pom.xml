@@ -5,7 +5,7 @@
 
     <groupId>xyz.dahoba</groupId>
     <artifactId>roman-calculator</artifactId>
-    <version>1.0.20170330</version>
+        <version>1.0.20170330</version>
     <packaging>jar</packaging>
 
     <name>Roman Calculator</name>
