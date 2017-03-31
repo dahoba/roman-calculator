@@ -33,7 +33,7 @@ public class RomanCalculator {
     public void calculate(String sourceString) {
         this.sourceString = sourceString.toUpperCase();
 
-        if (null == sourceString) {
+        if (null == sourceString || isInvalidLetters(this.sourceString)) {
             throw new RuntimeException("Invalid input");
         }
         String[] lettersArray;
@@ -54,6 +54,7 @@ public class RomanCalculator {
         System.out.print(toRoman(total));
         System.out.println("");
     }
+
 
     private int toArabic(String letters) {
         int arabicNumber = 0;
@@ -110,5 +111,22 @@ public class RomanCalculator {
         }
         String subtractString = letters.substring(letterIndex, letterIndex + SUBTRACT_LIMIT); //i.e.: IV, IX
         return Arrays.asList(subtractLetters).contains(subtractString);
+    }
+
+    private boolean isInvalidLetters(String letters) {
+        log.debug(" check letters: " + letters);
+        boolean check = false;
+        for (int i = 0; i < letters.length(); i++) {
+            String letter = letters.substring(i, i + 1);
+            log.debug(" contain ?: " + letter);
+            if ("+".equals(letter)) {
+                continue;
+            }
+            if (Arrays.asList(romanLetters).indexOf(letter) == -1) {
+                log.debug("!! " + letter);
+                check = true;
+            }
+        }
+        return check;
     }
 }
